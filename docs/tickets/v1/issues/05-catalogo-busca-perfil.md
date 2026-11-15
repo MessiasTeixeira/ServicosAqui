@@ -4,9 +4,15 @@
 
 **Blocked by:** 03
 
-**Status:** ready-for-agent
+**Status:** done (falta google-services.json para rodar)
 
-- [ ] Só Anúncios com `ativo == true` (consulta no Firestore)
-- [ ] Filtro do catálogo como função pura, com testes unitários
-- [ ] Navegação Início → Perfil público (rota recebe o id) → voltar
-- [ ] Desativar um Anúncio na aba Anúncios o tira do catálogo ao voltar ao Início
+- [x] Só Anúncios com `ativo == true` (consulta no Firestore)
+- [x] Filtro do catálogo como função pura, com testes unitários
+- [x] Navegação Início → Perfil público (rota recebe o id) → voltar
+- [x] Desativar um Anúncio na aba Anúncios o tira do catálogo ao voltar ao Início
+
+## Comments
+
+Feito: `filtrarAnuncios` (função pura, 9 testes JUnit: termo sem maiúsculas e acentos em nome, Categoria, descrição e área; Categoria opcional; combinados), `CatalogoViewModel` (consulta `ativo == true` via `listarAtivos`), `InicioScreen` (busca, chips de Categoria que desmarcam ao tocar de novo, cards, mensagem sem resultado, erro de conexão com "Tentar de novo"), `PerfilViewModel` e `PerfilScreen` (rota `perfil/{id}`, voltar). O catálogo recarrega ao voltar ao Início, então desativar na aba Anúncios o tira da lista. Tela provisória removida.
+
+Falta: o `app/google-services.json` não existe, então o Firestore não inicializa e o Início mostra a mensagem de falta de conexão. Também falta verificar no emulador o fluxo do Visitante e a ligação com o ticket 03.
