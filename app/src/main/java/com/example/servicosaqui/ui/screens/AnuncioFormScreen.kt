@@ -62,6 +62,7 @@ fun AnuncioFormScreen(
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         topBar = {
             TopAppBar(
+                windowInsets = WindowInsets(0, 0, 0, 0),
                 title = { Text(if (id == null) "Novo anúncio" else "Editar anúncio") },
                 navigationIcon = {
                     IconButton(onClick = onVoltar) {
