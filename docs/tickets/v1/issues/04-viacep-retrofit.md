@@ -4,8 +4,12 @@
 
 **Blocked by:** 03
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Interface Retrofit com `suspend fun` e repositório que devolve `Result`, no estilo do exemplo `BuscaCEP ViewModel`
-- [ ] Montagem da Área atendida como função pura, com testes unitários
-- [ ] Estado de carregamento visível durante a consulta; erros não derrubam o app
+- [x] Interface Retrofit com `suspend fun` e repositório que devolve `Result`, no estilo do exemplo `BuscaCEP ViewModel`
+- [x] Montagem da Área atendida como função pura, com testes unitários
+- [x] Estado de carregamento visível durante a consulta; erros não derrubam o app
+
+## Comments
+
+Feito: `EnderecoAPI` (Retrofit, `suspend fun`, `@GET`/`@Path`), `CepRepository` (Retrofit + Gson, devolve `Result`, `"erro": true` vira `CepNaoEncontradoException`), `Endereco`, `montarAreaAtendida` (função pura, 4 testes JUnit) e, no formulário, campo CEP (só números, até 8) com botão Buscar, indicador de carregamento e mensagens para CEP curto, inexistente, sem conexão e falha geral. A área continua editável. Falta verificar no emulador com um CEP real.
