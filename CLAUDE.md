@@ -15,6 +15,7 @@ The project is delivered in phases. **Fase 1** (current, spec in `docs/tickets/v
 ## Build
 
 - `./gradlew assembleDebug` builds; `./gradlew testDebugUnitTest` runs unit tests.
+- CI (`.github/workflows/ci.yml`) runs on every PR and push to `main`: fails on `//` or `/*` comment lines in `.kt` files, then runs the tests and the debug build.
 - `local.properties` (not committed) holds `sdk.dir`.
 - `app/google-services.json` is committed on purpose: Firebase client config is not a secret; access is enforced by `firestore.rules`.
 
