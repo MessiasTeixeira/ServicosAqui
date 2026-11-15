@@ -2,10 +2,14 @@ package com.example.servicosaqui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.servicosaqui.clientservice.CepNaoEncontradoException
+import com.example.servicosaqui.clientservice.CepRepository
 import com.example.servicosaqui.model.Anuncio
 import com.example.servicosaqui.model.AnuncioDao
 import com.example.servicosaqui.model.CampoAnuncio
+import com.example.servicosaqui.model.montarAreaAtendida
 import com.example.servicosaqui.model.validarAnuncio
+import java.io.IOException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -22,11 +26,15 @@ data class AnuncioFormUIState(
     val carregando: Boolean = false,
     val salvando: Boolean = false,
     val erro: String? = null,
-    val salvo: Boolean = false
+    val salvo: Boolean = false,
+    val cep: String = "",
+    val buscandoCep: Boolean = false,
+    val erroCep: String? = null
 )
 
 class AnuncioFormViewModel : ViewModel() {
     private val dao = AnuncioDao()
+    private val cepRepository = CepRepository()
 
     private val _uiState = MutableStateFlow(AnuncioFormUIState())
     val uiState: StateFlow<AnuncioFormUIState> = _uiState
@@ -73,6 +81,41 @@ class AnuncioFormViewModel : ViewModel() {
 
     fun alterarAreaAtendida(areaAtendida: String) {
         _uiState.update { it.copy(areaAtendida = areaAtendida, camposInvalidos = it.camposInvalidos - CampoAnuncio.AREA_ATENDIDA) }
+    }
+
+    fun alterarCep(cep: String) {
+        _uiState.update { it.copy(cep = cep.filter { c -> c.isDigit() }.take(8), erroCep = null) }
+    }
+
+    fun buscarCep() {
+        val cep = _uiState.value.cep
+        if (cep.length != 8) {
+            _uiState.update { it.copy(erroCep = "Informe um CEP com 8 números.") }
+            return
+        }
+        viewModelScope.launch {
+            _uiState.update { it.copy(buscandoCep = true, erroCep = null) }
+            val resultado = cepRepository.getEnderecoByCEP(cep)
+            resultado.fold(
+                onSuccess = { endereco ->
+                    _uiState.update {
+                        it.copy(
+                            areaAtendida = montarAreaAtendida(endereco),
+                            camposInvalidos = it.camposInvalidos - CampoAnuncio.AREA_ATENDIDA,
+                            buscandoCep = false
+                        )
+                    }
+                },
+                onFailure = { erro ->
+                    val mensagem = when (erro) {
+                        is CepNaoEncontradoException -> "CEP não encontrado. Confira os números."
+                        is IOException -> "Sem conexão. Verifique a internet e tente de novo."
+                        else -> "Não foi possível consultar o CEP. Tente de novo."
+                    }
+                    _uiState.update { it.copy(buscandoCep = false, erroCep = mensagem) }
+                }
+            )
+        }
     }
 
     fun alterarAtivo(ativo: Boolean) {
