@@ -12,19 +12,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.tooling.preview.Preview
 
-private val Verde = Color(0xFF173F35)
-private val Dourado = Color(0xFFD5A85B)
-private val Fundo = Color(0xFFF5F2EA)
-private val Grafite = Color(0xFF343B36)
 
 @Composable
 fun CadastroScreen(onLoginClick: () -> Unit) {
@@ -43,27 +37,25 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Fundo)
+            .background(MaterialTheme.colorScheme.background)
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 28.dp, vertical = 30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         Spacer(modifier = Modifier.height(12.dp))
-
-        // LOGO
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Surface(
                 modifier = Modifier.size(44.dp),
                 shape = RoundedCornerShape(13.dp),
-                color = Verde
+                color = MaterialTheme.colorScheme.primary
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Text(
                         text = "S",
-                        color = Dourado,
+                        color = MaterialTheme.colorScheme.secondary,
                         fontSize = 26.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -76,13 +68,11 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 text = "ServiçosAqui",
                 fontSize = 23.sp,
                 fontWeight = FontWeight.Bold,
-                color = Verde
+                color = MaterialTheme.colorScheme.primary
             )
         }
 
         Spacer(modifier = Modifier.height(32.dp))
-
-        // APRESENTAÇÃO
         Column(
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -90,7 +80,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 text = "Crie sua conta",
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
-                color = Grafite
+                color = MaterialTheme.colorScheme.onBackground
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -98,7 +88,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
             Text(
                 text = "Faça parte do ServiçosAqui e encontre novas oportunidades.",
                 fontSize = 14.sp,
-                color = Color(0xFF777C76),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 lineHeight = 22.sp
             )
         }
@@ -109,7 +99,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(22.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color.White
+                containerColor = MaterialTheme.colorScheme.surface
             ),
             elevation = CardDefaults.cardElevation(
                 defaultElevation = 3.dp
@@ -124,12 +114,10 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                     text = "Informações pessoais",
                     fontSize = 18.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = Grafite
+                    color = MaterialTheme.colorScheme.onBackground
                 )
 
                 Spacer(modifier = Modifier.height(18.dp))
-
-                // NOME
                 CampoCadastro(
                     titulo = "Nome completo",
                     valor = nome,
@@ -138,8 +126,6 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
-
-                // EMAIL
                 CampoCadastro(
                     titulo = "E-mail",
                     valor = email,
@@ -149,8 +135,6 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
-
-                // TELEFONE
                 CampoCadastro(
                     titulo = "Telefone",
                     valor = telefone,
@@ -160,8 +144,6 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
-
-                // SENHA
                 CampoSenha(
                     titulo = "Senha",
                     valor = senha,
@@ -173,8 +155,6 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
-
-                // CONFIRMAR SENHA
                 CampoSenha(
                     titulo = "Confirmar senha",
                     valor = confirmarSenha,
@@ -188,17 +168,15 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 Spacer(modifier = Modifier.height(26.dp))
 
                 HorizontalDivider(
-                    color = Color(0xFFEEEEEA)
+                    color = MaterialTheme.colorScheme.outlineVariant
                 )
 
                 Spacer(modifier = Modifier.height(22.dp))
-
-                // ESCOLHA DO PERFIL
                 Text(
                     text = "Como deseja utilizar o aplicativo?",
                     fontSize = 17.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = Grafite
+                    color = MaterialTheme.colorScheme.onBackground
                 )
 
                 Spacer(modifier = Modifier.height(6.dp))
@@ -206,7 +184,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 Text(
                     text = "Selecione o perfil da sua conta.",
                     fontSize = 13.sp,
-                    color = Color(0xFF777C76)
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -215,8 +193,6 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-
-                    // CLIENTE
                     CartaoPerfil(
                         titulo = "Cliente",
                         descricao = "Quero contratar serviços",
@@ -227,8 +203,6 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                             tipoUsuario = "CLIENTE"
                         }
                     )
-
-                    // PRESTADOR
                     CartaoPerfil(
                         titulo = "Prestador",
                         descricao = "Quero oferecer serviços",
@@ -242,8 +216,6 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 }
 
                 Spacer(modifier = Modifier.height(26.dp))
-
-                // BOTÃO CADASTRAR
                 Button(
                     onClick = {},
                     modifier = Modifier
@@ -251,20 +223,18 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                         .height(54.dp),
                     shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Verde
+                        containerColor = MaterialTheme.colorScheme.primary
                     )
                 ) {
                     Text(
                         text = "Criar minha conta",
                         fontSize = 16.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onPrimary
                     )
                 }
 
                 Spacer(modifier = Modifier.height(18.dp))
-
-                // VOLTAR PARA LOGIN
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Center,
@@ -273,17 +243,17 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                     Text(
                         text = "Já possui uma conta?",
                         fontSize = 13.sp,
-                        color = Color(0xFF777C76)
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
                     TextButton(
-                        onClick = {}
+                        onClick = onLoginClick
                     ) {
                         Text(
                             text = "Entrar",
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Bold,
-                            color = Verde
+                            color = MaterialTheme.colorScheme.primary
                         )
                     }
                 }
@@ -297,7 +267,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
             fontSize = 11.sp,
             letterSpacing = 2.sp,
             fontWeight = FontWeight.Bold,
-            color = Verde
+            color = MaterialTheme.colorScheme.primary
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -317,7 +287,7 @@ fun CampoCadastro(
             text = titulo,
             fontSize = 14.sp,
             fontWeight = FontWeight.Medium,
-            color = Grafite
+            color = MaterialTheme.colorScheme.onBackground
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -335,10 +305,10 @@ fun CampoCadastro(
                 keyboardType = keyboardType
             ),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = Verde,
-                unfocusedBorderColor = Color(0xFFE1E1DB),
-                focusedContainerColor = Color.White,
-                unfocusedContainerColor = Color.White
+                focusedBorderColor = MaterialTheme.colorScheme.primary,
+                unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface
             )
         )
     }
@@ -357,7 +327,7 @@ fun CampoSenha(
             text = titulo,
             fontSize = 14.sp,
             fontWeight = FontWeight.Medium,
-            color = Grafite
+            color = MaterialTheme.colorScheme.onBackground
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -380,7 +350,7 @@ fun CampoSenha(
                 TextButton(onClick = onMostrarSenha) {
                     Text(
                         text = if (mostrarSenha) "Ocultar" else "Mostrar",
-                        color = Verde,
+                        color = MaterialTheme.colorScheme.primary,
                         fontSize = 12.sp
                     )
                 }
@@ -389,10 +359,10 @@ fun CampoSenha(
                 keyboardType = KeyboardType.Password
             ),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = Verde,
-                unfocusedBorderColor = Color(0xFFE1E1DB),
-                focusedContainerColor = Color.White,
-                unfocusedContainerColor = Color.White
+                focusedBorderColor = MaterialTheme.colorScheme.primary,
+                unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface
             )
         )
     }
@@ -411,14 +381,14 @@ fun CartaoPerfil(
         modifier = modifier
             .border(
                 width = if (selecionado) 2.dp else 1.dp,
-                color = if (selecionado) Verde else Color(0xFFE1E1DB),
+                color = if (selecionado) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline,
                 shape = RoundedCornerShape(14.dp)
             )
             .background(
                 color = if (selecionado)
-                    Color(0xFFF0F5F1)
+                    MaterialTheme.colorScheme.primaryContainer
                 else
-                    Color.White,
+                    MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(14.dp)
             )
             .clickable { onClick() }
@@ -435,14 +405,14 @@ fun CartaoPerfil(
                 text = if (identificador == "CLIENTE") "C" else "P",
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold,
-                color = Verde
+                color = MaterialTheme.colorScheme.primary
             )
 
             RadioButton(
                 selected = selecionado,
                 onClick = onClick,
                 colors = RadioButtonDefaults.colors(
-                    selectedColor = Verde
+                    selectedColor = MaterialTheme.colorScheme.primary
                 )
             )
         }
@@ -453,7 +423,7 @@ fun CartaoPerfil(
             text = titulo,
             fontSize = 15.sp,
             fontWeight = FontWeight.Bold,
-            color = Grafite
+            color = MaterialTheme.colorScheme.onBackground
         )
 
         Spacer(modifier = Modifier.height(4.dp))
@@ -462,7 +432,7 @@ fun CartaoPerfil(
             text = descricao,
             fontSize = 11.sp,
             lineHeight = 16.sp,
-            color = Color(0xFF777C76)
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
 }
