@@ -10,19 +10,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.compose.ui.tooling.preview.Preview
 
-private val Verde = Color(0xFF173F35)
-private val Dourado = Color(0xFFD5A85B)
-private val Fundo = Color(0xFFF5F2EA)
-private val Grafite = Color(0xFF343B36)
 
 @Composable
 fun LoginScreen(onCadastrarClick: () -> Unit) {
@@ -34,29 +26,26 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Fundo)
+            .background(MaterialTheme.colorScheme.background)
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 28.dp, vertical = 36.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         Spacer(modifier = Modifier.height(24.dp))
-
-        // LOGO
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Surface(
                 modifier = Modifier.size(48.dp),
                 shape = RoundedCornerShape(14.dp),
-                color = Verde
+                color = MaterialTheme.colorScheme.primary
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Text(
                         text = "S",
-                        color = Dourado,
-                        fontSize = 28.sp,
-                        fontWeight = FontWeight.Bold
+                        color = MaterialTheme.colorScheme.secondary,
+                        style = MaterialTheme.typography.headlineMedium
                     )
                 }
             }
@@ -65,43 +54,36 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
 
             Text(
                 text = "ServiçosAqui",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.Bold,
-                color = Verde
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.primary
             )
         }
 
         Spacer(modifier = Modifier.height(48.dp))
-
-        // APRESENTAÇÃO
         Column(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
                 text = "Bem-vindo!",
-                fontSize = 29.sp,
-                fontWeight = FontWeight.Bold,
-                color = Grafite
+                style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.onBackground
             )
 
             Spacer(modifier = Modifier.height(10.dp))
 
             Text(
                 text = "Encontre profissionais de confiança e resolva o que precisa.",
-                fontSize = 15.sp,
-                color = Color(0xFF777C76),
-                lineHeight = 23.sp
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
 
         Spacer(modifier = Modifier.height(32.dp))
-
-        // FORMULÁRIO
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(22.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color.White
+                containerColor = MaterialTheme.colorScheme.surface
             ),
             elevation = CardDefaults.cardElevation(
                 defaultElevation = 3.dp
@@ -113,19 +95,15 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
 
                 Text(
                     text = "Entrar na sua conta",
-                    fontSize = 19.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    color = Grafite
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onBackground
                 )
 
                 Spacer(modifier = Modifier.height(22.dp))
-
-                // EMAIL
                 Text(
                     text = "E-mail",
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Grafite
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onBackground
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -143,21 +121,18 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                         keyboardType = KeyboardType.Email
                     ),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Verde,
-                        unfocusedBorderColor = Color(0xFFE1E1DB),
-                        focusedContainerColor = Color.White,
-                        unfocusedContainerColor = Color.White
+                        focusedBorderColor = MaterialTheme.colorScheme.primary,
+                        unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                        focusedContainerColor = MaterialTheme.colorScheme.surface,
+                        unfocusedContainerColor = MaterialTheme.colorScheme.surface
                     )
                 )
 
                 Spacer(modifier = Modifier.height(18.dp))
-
-                // SENHA
                 Text(
                     text = "Senha",
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Grafite
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onBackground
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -187,8 +162,8 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                                     "Ocultar"
                                 else
                                     "Mostrar",
-                                color = Verde,
-                                fontSize = 12.sp
+                                color = MaterialTheme.colorScheme.primary,
+                                style = MaterialTheme.typography.labelMedium
                             )
                         }
                     },
@@ -196,14 +171,12 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                         keyboardType = KeyboardType.Password
                     ),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Verde,
-                        unfocusedBorderColor = Color(0xFFE1E1DB),
-                        focusedContainerColor = Color.White,
-                        unfocusedContainerColor = Color.White
+                        focusedBorderColor = MaterialTheme.colorScheme.primary,
+                        unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                        focusedContainerColor = MaterialTheme.colorScheme.surface,
+                        unfocusedContainerColor = MaterialTheme.colorScheme.surface
                     )
                 )
-
-                // RECUPERAR SENHA
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End
@@ -213,15 +186,13 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                     ) {
                         Text(
                             text = "Esqueceu a senha?",
-                            color = Verde,
-                            fontSize = 13.sp
+                            color = MaterialTheme.colorScheme.primary,
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
                 }
 
                 Spacer(modifier = Modifier.height(12.dp))
-
-                // BOTÃO ENTRAR
                 Button(
                     onClick = {},
                     modifier = Modifier
@@ -229,20 +200,17 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                         .height(54.dp),
                     shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Verde
+                        containerColor = MaterialTheme.colorScheme.primary
                     )
                 ) {
                     Text(
                         text = "Entrar",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = Color.White
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onPrimary
                     )
                 }
 
                 Spacer(modifier = Modifier.height(22.dp))
-
-                // CADASTRO
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Center,
@@ -250,8 +218,8 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                 ) {
                     Text(
                         text = "Ainda não tem uma conta?",
-                        fontSize = 13.sp,
-                        color = Color(0xFF777C76)
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
                     TextButton(
@@ -259,9 +227,8 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                     ) {
                         Text(
                             text = "Cadastre-se",
-                            fontSize = 13.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Verde
+                            style = MaterialTheme.typography.labelLarge,
+                            color = MaterialTheme.colorScheme.primary
                         )
                     }
                 }
@@ -269,22 +236,18 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
         }
 
         Spacer(modifier = Modifier.height(32.dp))
-
-        // RODAPÉ
         Text(
             text = "Conectando pessoas a soluções.",
-            fontSize = 13.sp,
-            color = Color(0xFF858980)
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(
             text = "SERVIÇOSAQUI",
-            fontSize = 11.sp,
-            letterSpacing = 2.sp,
-            fontWeight = FontWeight.Bold,
-            color = Verde
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.primary
         )
     }
 }

@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.servicosaqui.ui.navigation.AppNavigation
+import com.example.servicosaqui.ui.theme.ServicosAquiTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -14,7 +15,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            AppNavigation()
+            ServicosAquiTheme {
+                AppNavigation()
+            }
         }
     }
 }
