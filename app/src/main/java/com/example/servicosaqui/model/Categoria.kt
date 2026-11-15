@@ -1,7 +1,12 @@
 package com.example.servicosaqui.model
 
-data class Categoria(
-    val id: String = "",
-    val nome: String = "",
-    val descricao: String = ""
-)
+object Categoria {
+    val todas = listOf(
+        "Limpeza",
+        "Elétrica",
+        "Hidráulica",
+        "Marcenaria",
+        "Pintura",
+        "Jardinagem"
+    )
+}
