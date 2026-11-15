@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sem comentários no código Kotlin
+        run: |
+          if grep -rnE '^\s*(//|/\*)' app/src --include='*.kt'; then
+            echo "Remova os comentários acima (regra do CLAUDE.md)."
+            exit 1
+          fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Testes e build
+        run: ./gradlew testDebugUnitTest assembleDebug --console=plain
