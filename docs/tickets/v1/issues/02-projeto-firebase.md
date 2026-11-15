@@ -4,9 +4,13 @@
 
 **Blocked by:** None (can start immediately)
 
-**Status:** ready-for-human
+**Status:** done
 
-- [ ] Projeto Firebase criado no plano Spark, sem Analytics
-- [ ] App Android registrado com o pacote `com.example.servicosaqui`; `google-services.json` salvo em `app/`
-- [ ] Cloud Firestore criado (modo produção, região `southamerica-east1`)
-- [ ] Conteúdo de `firestore.rules` publicado na aba Regras do Firestore
+- [x] Projeto Firebase criado no plano Spark (Analytics e Gemini ficaram ligados; o app não usa o SDK do Analytics)
+- [x] App Android registrado com o pacote `com.example.servicosaqui`; `google-services.json` salvo em `app/`
+- [x] Cloud Firestore criado (modo produção, região `southamerica-east1`)
+- [x] Conteúdo de `firestore.rules` publicado na aba Regras do Firestore
+
+## Comments
+
+2026-11-15: projeto `servicosaqui-d6562` criado pelo Caio (Spark), app registrado, Firestore `(default)` criado, regras da Fase 1 publicadas. Messias e Esdras adicionados como Editor. Falta o e-mail do Erick para dar acesso a ele.

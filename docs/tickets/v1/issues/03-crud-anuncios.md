@@ -4,9 +4,9 @@
 
 **Blocked by:** 01, 02
 
-**Status:** done (falta google-services.json)
+**Status:** done
 
-- [ ] Plugin `google-services` aplicado; app compila com o `google-services.json`
+- [x] Plugin `google-services` aplicado; app compila com o `google-services.json`
 - [x] `AnuncioDao` no estilo do exemplo `AppTask` (criar, listar todos, listar ativos, buscar por id, atualizar, excluir)
 - [x] ViewModel com `MutableStateFlow` de uma data class `UIState`
 - [x] Validação do Anúncio como função pura, com testes unitários JUnit
@@ -17,3 +17,5 @@
 Feito: `AnuncioDao` (criar, listarTodos, listarAtivos, buscarPorId, atualizar, excluir; as exceções sobem e os ViewModels viram mensagem), `AnunciosViewModel` e `AnuncioFormViewModel` com `UIState`, `validarAnuncio` (função pura, 5 testes JUnit), telas `AnunciosScreen` (lista, FAB, Switch ativo, excluir com confirmação) e `AnuncioFormScreen` (criar/editar, categoria em chips da lista fixa), rotas `anuncios` e `formulario?id={id}`. Os `Example*Test` foram apagados.
 
 Falta: o `app/google-services.json` ainda não existe. O plugin `com.google.gms.google-services` está declarado no build raiz e o `app/build.gradle.kts` só o aplica quando o arquivo existir. Sem o arquivo, o app compila, mas o Firestore não inicializa e as telas mostram a mensagem de erro de conexão. Falta também verificar no emulador (criar, editar, ativar/desativar, excluir, reabrir).
+
+2026-11-15: `google-services.json` versionado e o plugin aplicado com `alias(libs.plugins.google.services)` (sem condicional). CRUD verificado no emulador contra o Firestore real.
