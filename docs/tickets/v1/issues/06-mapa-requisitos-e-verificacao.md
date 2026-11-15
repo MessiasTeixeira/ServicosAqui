@@ -4,9 +4,17 @@
 
 **Blocked by:** 04, 05
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] `docs/requisitos.md` com uma linha por requisito → arquivo(s)
-- [ ] Percurso Visitante verificado no emulador
-- [ ] Percurso Gestão verificado no emulador (criar com CEP, editar, desativar, reativar, excluir)
-- [ ] `./gradlew testDebugUnitTest assembleDebug` passa
+- [x] `docs/requisitos.md` com uma linha por requisito → arquivo(s)
+- [x] Percurso Visitante verificado no emulador
+- [x] Percurso Gestão verificado no emulador (criar com CEP, editar, desativar, reativar, excluir)
+- [x] `./gradlew testDebugUnitTest assembleDebug` passa
+
+## Comments
+
+2026-11-15, emulador API 36 com o Firestore real:
+- Visitante: catálogo lista só ativos; busca "hidraulica" acha "Hidráulica"; termo sem resultado mostra mensagem; chip Elétrica filtra e um segundo toque limpa; card abre o Perfil público (sem contato) e Voltar retorna.
+- Gestão: criar com CEP 01001-000 (Área "Sé — São Paulo/SP"), editar o nome, desativar (some do Início com "Ainda não há anúncios ativos."), reativar (volta), dados mantidos após fechar e reabrir o app, excluir com confirmação.
+- Erros: sem Firebase e com CEP inexistente aparecem mensagens, sem fechar o app.
+- `./gradlew testDebugUnitTest assembleDebug` verde (18 testes).
