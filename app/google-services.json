@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "99892705973",
+    "project_id": "servicosaqui-d6562",
+    "storage_bucket": "servicosaqui-d6562.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99892705973:android:354b3eb46e87ed215a1cfc",
+        "android_client_info": {
+          "package_name": "com.example.servicosaqui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFnMaFv9yW_vsplf6rQ3Fr3ebaa2ZclnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

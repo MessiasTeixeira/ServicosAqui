@@ -1,0 +1,21 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function anuncioValido() {
+      let dados = request.resource.data;
+      return dados.keys().hasOnly(['nome', 'categoria', 'descricao', 'areaAtendida', 'ativo'])
+        && dados.nome is string && dados.nome.size() > 0
+        && dados.categoria is string && dados.categoria.size() > 0
+        && dados.descricao is string && dados.descricao.size() > 0
+        && dados.areaAtendida is string && dados.areaAtendida.size() > 0
+        && dados.ativo is bool;
+    }
+
+    match /anuncios/{id} {
+      allow read, delete: if true;
+      allow create, update: if anuncioValido();
+    }
+  }
+}
