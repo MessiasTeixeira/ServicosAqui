@@ -18,7 +18,7 @@ Atualize este arquivo sempre que mover ou criar um arquivo de requisito.
 
 ## 2. Requisitos do deck cobertos na Fase 1
 
-Os textos abaixo seguem o que a spec (`docs/tickets/v1/spec.md`) diz de cada código. Confira com o deck antes de apresentar.
+Os códigos são os do deck da Fase I (slides 8 a 13).
 
 | Código | O que a Fase 1 faz | Arquivo(s) |
 |---|---|---|
@@ -26,9 +26,9 @@ Os textos abaixo seguem o que a spec (`docs/tickets/v1/spec.md`) diz de cada có
 | RF02 | Busca por termo e filtro por Categoria, combinados | `model/FiltroCatalogo.kt` (`filtrarAnuncios`) |
 | RF03 | Cada card mostra nome, Categoria e Área atendida | `ui/screens/InicioScreen.kt` (`CartaoCatalogo`) |
 | RF04 | Perfil público com a descrição completa e a Área atendida | `ui/screens/PerfilScreen.kt`, `viewmodels/PerfilViewModel.kt` |
-| RF08 | Editar um Anúncio no mesmo formulário | `ui/screens/AnuncioFormScreen.kt`, `viewmodels/AnuncioFormViewModel.kt` (`carregar`, `salvar`) |
+| RF08 | Criar e editar um Anúncio no mesmo formulário, com validação | `ui/screens/AnuncioFormScreen.kt`, `viewmodels/AnuncioFormViewModel.kt` (`carregar`, `salvar`) |
 | RF09 | Ativar ou desativar um Anúncio e ver o catálogo mudar | `viewmodels/AnunciosViewModel.kt` (`alternarAtivo`), `model/AnuncioDao.kt` (`atualizar`) |
-| RN01 | Nome, Categoria, descrição e Área atendida são obrigatórios | `model/ValidacaoAnuncio.kt` (`validarAnuncio`) |
+| RN01 | Nome, Categoria, descrição e Área atendida são obrigatórios (o WhatsApp entra na Fase 2) | `model/ValidacaoAnuncio.kt` (`validarAnuncio`) |
 | RN02 | O catálogo mostra só Anúncios ativos | `model/AnuncioDao.kt` (`listarAtivos`), `viewmodels/CatalogoViewModel.kt` |
 | RN05 | Sem preços, notas ou certificações | `model/Anuncio.kt` (o Anúncio não tem esses campos) |
 | RN06 | Sem pedidos, agenda, pagamento ou comissão | Os modelos `Solicitacao`, `ServicoPrestador` e afins foram removidos |
