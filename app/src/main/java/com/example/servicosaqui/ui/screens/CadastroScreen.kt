@@ -12,12 +12,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -56,8 +54,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                     Text(
                         text = "S",
                         color = MaterialTheme.colorScheme.secondary,
-                        fontSize = 26.sp,
-                        fontWeight = FontWeight.Bold
+                        style = MaterialTheme.typography.headlineSmall
                     )
                 }
             }
@@ -66,8 +63,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
 
             Text(
                 text = "ServiçosAqui",
-                fontSize = 23.sp,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorScheme.primary
             )
         }
@@ -78,8 +74,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
         ) {
             Text(
                 text = "Crie sua conta",
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.onBackground
             )
 
@@ -87,9 +82,8 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
 
             Text(
                 text = "Faça parte do ServiçosAqui e encontre novas oportunidades.",
-                fontSize = 14.sp,
+                style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                lineHeight = 22.sp
             )
         }
 
@@ -112,8 +106,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
 
                 Text(
                     text = "Informações pessoais",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.SemiBold,
+                    style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onBackground
                 )
 
@@ -174,8 +167,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 Spacer(modifier = Modifier.height(22.dp))
                 Text(
                     text = "Como deseja utilizar o aplicativo?",
-                    fontSize = 17.sp,
-                    fontWeight = FontWeight.SemiBold,
+                    style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onBackground
                 )
 
@@ -183,7 +175,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
 
                 Text(
                     text = "Selecione o perfil da sua conta.",
-                    fontSize = 13.sp,
+                    style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
@@ -228,8 +220,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 ) {
                     Text(
                         text = "Criar minha conta",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold,
+                        style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 }
@@ -242,7 +233,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                 ) {
                     Text(
                         text = "Já possui uma conta?",
-                        fontSize = 13.sp,
+                        style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
@@ -251,8 +242,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
                     ) {
                         Text(
                             text = "Entrar",
-                            fontSize = 13.sp,
-                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.labelLarge,
                             color = MaterialTheme.colorScheme.primary
                         )
                     }
@@ -264,9 +254,7 @@ fun CadastroScreen(onLoginClick: () -> Unit) {
 
         Text(
             text = "SERVIÇOSAQUI",
-            fontSize = 11.sp,
-            letterSpacing = 2.sp,
-            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.primary
         )
 
@@ -285,8 +273,7 @@ fun CampoCadastro(
     Column {
         Text(
             text = titulo,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Medium,
+            style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onBackground
         )
 
@@ -325,8 +312,7 @@ fun CampoSenha(
     Column {
         Text(
             text = titulo,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Medium,
+            style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onBackground
         )
 
@@ -351,7 +337,7 @@ fun CampoSenha(
                     Text(
                         text = if (mostrarSenha) "Ocultar" else "Mostrar",
                         color = MaterialTheme.colorScheme.primary,
-                        fontSize = 12.sp
+                        style = MaterialTheme.typography.labelMedium
                     )
                 }
             },
@@ -403,8 +389,7 @@ fun CartaoPerfil(
         ) {
             Text(
                 text = if (identificador == "CLIENTE") "C" else "P",
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.primary
             )
 
@@ -421,8 +406,7 @@ fun CartaoPerfil(
 
         Text(
             text = titulo,
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onBackground
         )
 
@@ -430,8 +414,7 @@ fun CartaoPerfil(
 
         Text(
             text = descricao,
-            fontSize = 11.sp,
-            lineHeight = 16.sp,
+            style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }

@@ -10,12 +10,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -47,8 +45,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                     Text(
                         text = "S",
                         color = MaterialTheme.colorScheme.secondary,
-                        fontSize = 28.sp,
-                        fontWeight = FontWeight.Bold
+                        style = MaterialTheme.typography.headlineMedium
                     )
                 }
             }
@@ -57,8 +54,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
 
             Text(
                 text = "ServiçosAqui",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorScheme.primary
             )
         }
@@ -69,8 +65,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
         ) {
             Text(
                 text = "Bem-vindo!",
-                fontSize = 29.sp,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.onBackground
             )
 
@@ -78,9 +73,8 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
 
             Text(
                 text = "Encontre profissionais de confiança e resolva o que precisa.",
-                fontSize = 15.sp,
+                style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                lineHeight = 23.sp
             )
         }
 
@@ -101,16 +95,14 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
 
                 Text(
                     text = "Entrar na sua conta",
-                    fontSize = 19.sp,
-                    fontWeight = FontWeight.SemiBold,
+                    style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onBackground
                 )
 
                 Spacer(modifier = Modifier.height(22.dp))
                 Text(
                     text = "E-mail",
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Medium,
+                    style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onBackground
                 )
 
@@ -139,8 +131,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                 Spacer(modifier = Modifier.height(18.dp))
                 Text(
                     text = "Senha",
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Medium,
+                    style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onBackground
                 )
 
@@ -172,7 +163,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                                 else
                                     "Mostrar",
                                 color = MaterialTheme.colorScheme.primary,
-                                fontSize = 12.sp
+                                style = MaterialTheme.typography.labelMedium
                             )
                         }
                     },
@@ -196,7 +187,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                         Text(
                             text = "Esqueceu a senha?",
                             color = MaterialTheme.colorScheme.primary,
-                            fontSize = 13.sp
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
                 }
@@ -214,8 +205,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                 ) {
                     Text(
                         text = "Entrar",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold,
+                        style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 }
@@ -228,7 +218,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                 ) {
                     Text(
                         text = "Ainda não tem uma conta?",
-                        fontSize = 13.sp,
+                        style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
@@ -237,8 +227,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
                     ) {
                         Text(
                             text = "Cadastre-se",
-                            fontSize = 13.sp,
-                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.labelLarge,
                             color = MaterialTheme.colorScheme.primary
                         )
                     }
@@ -249,7 +238,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
         Spacer(modifier = Modifier.height(32.dp))
         Text(
             text = "Conectando pessoas a soluções.",
-            fontSize = 13.sp,
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
@@ -257,9 +246,7 @@ fun LoginScreen(onCadastrarClick: () -> Unit) {
 
         Text(
             text = "SERVIÇOSAQUI",
-            fontSize = 11.sp,
-            letterSpacing = 2.sp,
-            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.primary
         )
     }
