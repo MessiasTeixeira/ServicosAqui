@@ -93,7 +93,11 @@ fun InicioScreen(
 
             filtrados.isEmpty() -> {
                 Text(
-                    text = "Nenhum anúncio encontrado para essa busca.",
+                    text = if (estado.termo.isBlank() && estado.categoria == null) {
+                        "Ainda não há anúncios ativos."
+                    } else {
+                        "Nenhum anúncio encontrado para essa busca."
+                    },
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(20.dp)
                 )
