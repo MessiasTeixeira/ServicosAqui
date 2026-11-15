@@ -19,7 +19,11 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.NavType
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.servicosaqui.ui.screens.AnuncioFormScreen
+import com.example.servicosaqui.ui.screens.AnunciosScreen
 import com.example.servicosaqui.ui.screens.CadastroScreen
 import com.example.servicosaqui.ui.screens.LoginScreen
 import com.example.servicosaqui.ui.screens.TelaProvisoria
@@ -33,7 +37,7 @@ private data class Aba(
 
 private val abas = listOf(
     Aba("inicio", listOf("inicio"), "Início", Icons.Filled.Home),
-    Aba("anuncios", listOf("anuncios"), "Anúncios", Icons.AutoMirrored.Filled.List),
+    Aba("anuncios", listOf("anuncios", "formulario?id={id}"), "Anúncios", Icons.AutoMirrored.Filled.List),
     Aba("login", listOf("login", "cadastro"), "Conta", Icons.Filled.Person)
 )
 
@@ -75,7 +79,32 @@ fun AppNavigation() {
             }
 
             composable("anuncios") {
-                TelaProvisoria("Anúncios")
+                AnunciosScreen(
+                    onNovoClick = {
+                        navController.navigate("formulario")
+                    },
+                    onAnuncioClick = { id ->
+                        navController.navigate("formulario?id=$id")
+                    }
+                )
+            }
+
+            composable(
+                route = "formulario?id={id}",
+                arguments = listOf(
+                    navArgument("id") {
+                        type = NavType.StringType
+                        nullable = true
+                        defaultValue = null
+                    }
+                )
+            ) { entrada ->
+                AnuncioFormScreen(
+                    id = entrada.arguments?.getString("id"),
+                    onVoltar = {
+                        navController.popBackStack()
+                    }
+                )
             }
 
             composable("login") {
