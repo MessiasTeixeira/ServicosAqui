@@ -26,7 +26,8 @@ import com.example.servicosaqui.ui.screens.AnuncioFormScreen
 import com.example.servicosaqui.ui.screens.AnunciosScreen
 import com.example.servicosaqui.ui.screens.CadastroScreen
 import com.example.servicosaqui.ui.screens.LoginScreen
-import com.example.servicosaqui.ui.screens.TelaProvisoria
+import com.example.servicosaqui.ui.screens.InicioScreen
+import com.example.servicosaqui.ui.screens.PerfilScreen
 
 private data class Aba(
     val rota: String,
@@ -36,7 +37,7 @@ private data class Aba(
 )
 
 private val abas = listOf(
-    Aba("inicio", listOf("inicio"), "Início", Icons.Filled.Home),
+    Aba("inicio", listOf("inicio", "perfil/{id}"), "Início", Icons.Filled.Home),
     Aba("anuncios", listOf("anuncios", "formulario?id={id}"), "Anúncios", Icons.AutoMirrored.Filled.List),
     Aba("login", listOf("login", "cadastro"), "Conta", Icons.Filled.Person)
 )
@@ -75,7 +76,23 @@ fun AppNavigation() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable("inicio") {
-                TelaProvisoria("Início")
+                InicioScreen(
+                    onAnuncioClick = { id ->
+                        navController.navigate("perfil/$id")
+                    }
+                )
+            }
+
+            composable(
+                route = "perfil/{id}",
+                arguments = listOf(navArgument("id") { type = NavType.StringType })
+            ) { entrada ->
+                PerfilScreen(
+                    id = entrada.arguments?.getString("id").orEmpty(),
+                    onVoltar = {
+                        navController.popBackStack()
+                    }
+                )
             }
 
             composable("anuncios") {
