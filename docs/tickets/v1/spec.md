@@ -1,6 +1,6 @@
 # Spec: ServiçosAqui — Fase 1
 
-**Status:** ready-for-agent
+**Status:** aprovada
 
 Fonte: requisitos da [Projeto] Parte 1 da disciplina (Compose + Material responsivo, busca com filtro e navegação, CRUD em banco na nuvem, API REST com Retrofit), o deck "ServiçoJá — Fase I" e as decisões de 2026-11-15 (Q1–Q16, F1–F4). Vocabulário: `GLOSSARY.md`. Decisões: `docs/adr/`. Entrega: 2026-11-16, 14:40.
 
