@@ -15,7 +15,7 @@ jobs:
       - name: Sem comentários no código Kotlin
         run: |
           if grep -rnE '^\s*(//|/\*)' app/src --include='*.kt'; then
-            echo "Remova os comentários acima (regra do CLAUDE.md)."
+            echo "Remova os comentários acima: o projeto não usa comentários no código."
             exit 1
           fi
 
