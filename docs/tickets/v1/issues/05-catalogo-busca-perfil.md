@@ -4,7 +4,7 @@
 
 **Blocked by:** 03
 
-**Status:** done (falta google-services.json para rodar)
+**Status:** done
 
 - [x] Só Anúncios com `ativo == true` (consulta no Firestore)
 - [x] Filtro do catálogo como função pura, com testes unitários
